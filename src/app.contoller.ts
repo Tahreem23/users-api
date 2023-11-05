@@ -8,7 +8,7 @@ export class AppController{
         return [];
     }
 
-    @Get('/:userId')
+    @Get()
     getUser(@Param() userId: number){
         return userId;
     }
