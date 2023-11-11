@@ -2,6 +2,7 @@ import { Controller, Get, Param, Patch, Post, Delete, Req, Body, ParseIntPipe  }
 import { UserService } from "./user.service";
 import { Request } from "express";
 import { UpdateUserDTO } from "./update-user.dto";
+import { CreateUserDTO } from "./create-user.dto";
 
 @Controller("/user")
 export class UserController{
@@ -20,7 +21,12 @@ export class UserController{
 
     @Post('/:userId')
     store(@Req() req: Request){
-        return this.userService.create(req);
+        return {};//this.userService.create(req);
+    }
+
+    @Post()
+    create(@Body() createUserDTO: CreateUserDTO){
+        return this.userService.create(createUserDTO);
     }
 
    
